@@ -1,3 +1,7 @@
 # dependencies
 /node_modules
 /build
+.env.development
+.env.test
+.env
+envJestTest.js

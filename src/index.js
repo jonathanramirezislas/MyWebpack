@@ -1,17 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/styles.scss'
-import './images/dragon.jpg'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {App} from './App'
 
-const App  = () => {
-    return (
-        <div>
-            <h1> Hello word Jonatn!</h1>
-            <img src='./images/dragon.jpg' />
-        </div>
-    )
-}
-//            <img src={require('./images/dragon.jpeg')} />
-
-
-ReactDOM.render(<App/>,document.getElementById("root"))
+ReactDOM.render(<App/>, document.getElementById('root'))

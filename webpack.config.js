@@ -1,12 +1,20 @@
 const path=require('path');
 const HtmlWebpackPlugin=require('html-webpack-plugin');
 const MiniCssExtractPlugin=require('mini-css-extract-plugin');
+const Dotenv=require('dotenv-webpack');
+
+
+
 module.exports={
     mode:"development",
-    entry: './src/index.js',
+    entry: ['@babel/polyfill','./src/index.js'],
     output:{
         path:path.join(__dirname,'build'),
         filename:'bundle.js'
+    },
+    devtool: "cheap-eval-source-map",
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js']
     },
     module:{
         rules:[
@@ -15,9 +23,8 @@ module.exports={
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
-           
+            
             {
-       
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -48,7 +55,6 @@ module.exports={
                       mozjpeg: {
                         progressive: true,
                       },
-                      // optipng.enabled: false will disable optipng
                       optipng: {
                         enabled: false,
                       },
@@ -59,7 +65,6 @@ module.exports={
                       gifsicle: {
                         interlaced: false,
                       },
-                      // the webp option will enable WEBP
                       webp: {
                         quality: 75
                       }
@@ -72,7 +77,6 @@ module.exports={
         ]
     },
 
-    //devtool:'cheap-module-eval-source-map',
     devServer:{
         port: 3000,
         contentBase:path.join(__dirname, 'build')
@@ -93,11 +97,10 @@ module.exports={
         }),
         new MiniCssExtractPlugin({
             filename:'styles.css'
-        })
-
+        }),
+        new Dotenv()
+      
     ]
 
-
-    
 
 }

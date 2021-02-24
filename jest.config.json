@@ -1,0 +1,15 @@
+{
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "transform": {
+      "^.+\\.(tsx|js)?$": "ts-jest",
+      "^.+\\.(tsx|js)?$": "babel-jest" 
+    },
+    "setupFilesAfterEnv": ["<rootDir>/setupEnzyme.js","<rootDir>/envJestTest.js"],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "moduleNameMapper": {
+        "^.+\\.(css|less|scss)$": "babel-jest",
+        "^.+\\.(jpg|png|gif|svg)$": "identity-obj-proxy"
+      }
+  }
